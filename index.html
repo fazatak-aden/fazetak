@@ -37,7 +37,8 @@
 
     body {
       font-family: 'Cairo', sans-serif;
-      background: linear-gradient(180deg, var(--bg-dark) 0%, #0d1f3c 50%, #0a1628 100%);
+      /* تم تعديل التدرج اللوني ليبدأ بالأسود لدمج خلفية الشعار بامتياز */
+      background: linear-gradient(180deg, #000000 0%, var(--bg-dark) 250px, #0d1f3c 100%);
       min-height: 100vh;
       color: var(--text-primary);
       line-height: 1.7;
@@ -48,82 +49,32 @@
     /* ===== HEADER / LOGO ===== */
     .header {
       text-align: center;
-      padding: 40px 0 20px;
+      padding: 30px 0 15px;
       position: relative;
     }
 
     .logo-wrapper {
       position: relative;
       display: inline-block;
-      padding: 20px;
-    }
-
-    .logo-glow {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 220px;
-      height: 220px;
-      background: radial-gradient(circle, rgba(242,101,34,0.12) 0%, rgba(11,43,91,0.2) 50%, transparent 70%);
-      border-radius: 50%;
-      z-index: 0;
-    }
-
-    .logo-ring {
-      position: absolute;
-      top: 50%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      width: 200px;
-      height: 200px;
-      border: 2px solid rgba(242, 101, 34, 0.2);
-      border-radius: 50%;
-      z-index: 0;
-      animation: pulse 3s ease-in-out infinite;
-    }
-
-    .logo-ring::before {
-      content: '';
-      position: absolute;
-      top: 8px; left: 8px; right: 8px; bottom: 8px;
-      border: 1.5px solid rgba(45, 108, 181, 0.15);
-      border-radius: 50%;
-    }
-
-    @keyframes pulse {
-      0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
-      50% { transform: translate(-50%, -50%) scale(1.05); opacity: 1; }
+      padding: 10px;
     }
 
     .logo-img {
-      width: 170px;
-      height: 170px;
+      width: 260px; /* تم تكبير العرض ليناسب الرمز والنص معاً */
+      height: auto;
       object-fit: contain;
-      border-radius: 50%;
       position: relative;
       z-index: 1;
-      filter: drop-shadow(0 8px 24px rgba(0,0,0,0.4));
-      background: linear-gradient(145deg, rgba(255,255,255,0.08), rgba(255,255,255,0.02));
-      padding: 8px;
-      border: 2px solid rgba(242, 101, 34, 0.15);
-    }
-
-    .brand-name {
-      font-size: 36px;
-      font-weight: 800;
-      color: #fff;
-      margin-top: 18px;
-      letter-spacing: -1px;
-      text-shadow: 0 2px 12px rgba(0,0,0,0.4);
+      filter: drop-shadow(0 4px 15px rgba(242, 101, 34, 0.08));
     }
 
     .tagline {
       color: var(--orange);
-      font-size: 15px;
+      font-size: 16px;
       font-weight: 700;
-      margin-top: 6px;
+      margin-top: 5px;
       letter-spacing: 1.5px;
+      text-shadow: 0 2px 10px rgba(0,0,0,0.5);
     }
 
     /* ===== ABOUT SECTION ===== */
@@ -492,12 +443,9 @@
       .checkbox-grid { grid-template-columns: 1fr; }
       .time-row { flex-direction: column; }
       .features-grid { grid-template-columns: 1fr; }
-      .brand-name { font-size: 30px; }
       .form-card { padding: 22px; }
       .about-card { padding: 20px; }
-      .logo-img { width: 140px; height: 140px; }
-      .logo-ring { width: 170px; height: 170px; }
-      .logo-glow { width: 190px; height: 190px; }
+      .logo-img { width: 220px; }
     }
   </style>
 </head>
@@ -508,11 +456,8 @@
   <!-- ===== HEADER ===== -->
   <div class="header">
     <div class="logo-wrapper">
-      <div class="logo-glow"></div>
-      <div class="logo-ring"></div>
-      <img src="logo.jpg" alt="شعار فزعتك" class="logo-img">
+      <img src="image_cd734677-117d-4af1-9d14-f489788f5d0d.png" alt="شعار فزعتك" class="logo-img">
     </div>
-    <div class="brand-name">فزعتك</div>
     <div class="tagline">كل الخدمات في مكان واحد</div>
   </div>
 
@@ -569,7 +514,6 @@
         <label class="form-label">الاسم الكامل <span class="required">*</span></label>
         <input type="text" class="form-input" name="fullName" placeholder="أدخل اسمك الكامل ثلاثي" required>
       </div>
-      <!-- تم إضافة حقل البريد الإلكتروني هنا لمنع خطأ 422 من Formspree -->
       <div class="form-group">
         <label class="form-label">البريد الإلكتروني <span class="required">*</span></label>
         <input type="email" class="form-input" name="email" placeholder="example@domain.com" required>
@@ -971,3 +915,4 @@
 
 </body>
 </html>
+
